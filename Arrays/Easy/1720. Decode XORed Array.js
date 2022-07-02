@@ -16,9 +16,10 @@ var decode = function (encoded, first) {
     // try to understand XOR operation on integers.
     output.push(output[i] ^ encoded[i]);
   }
-
-  return output;
+  return outp̥ut;
 };
+
+decode([1, 2, 3], 1);
 
 //  Let's say we have two elements a,x
 // a =b ^ x;
