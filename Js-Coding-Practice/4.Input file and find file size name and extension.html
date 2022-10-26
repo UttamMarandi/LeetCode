@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JavaScript File Upload Example</title>
+  <script type="text/javascript">
+    const showFileSize = () => {
+      const myInput = document.getElementById("fileinput");
+      const file = myInput.files[0];
+      const filename = file.name;
+      const filSize = file.size;
+      const type = file.name.substring(file.name.lastIndexOf(".") + 1); //last index of will return the index of the dot(.) and then add 1 to get the index of the next text. We want substring from that index till the end.
+    }
+  </script>
+</head>
+
+<body>
+  <form action="#" onsubmit="return false;">
+    <input type="file" id="fileinput" multiple />
+    <input type="button" id="btnLoad" value="Load" onclick="showFileSize();" />
+  </form>
+</body>
+
+</html>
