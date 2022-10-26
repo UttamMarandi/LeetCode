@@ -1,0 +1,23 @@
+<!-- Generate captcha is basically a function that generates random values -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Captcha Example</title>
+</head>
+<script>
+    const generateCaptcha = () => {
+        const myInput = document.getElementById("captcha");
+        const randomValue = Math.floor(Math.random() * 10000000);
+        myInput.value = randomValue;
+    } 
+</script>
+
+<body onload="generateCaptcha()">
+    <input type="text" id="captcha" disabled /><br /><br />
+    <button onclick="generateCaptcha()">Refresh</button>
+</body>
+
+</html>
