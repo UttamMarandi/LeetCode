@@ -21,3 +21,25 @@ const decimalToBinary = (input) => {
 
 console.log(decimalToBinary(10));
 console.log(decimalToBinary("10"));
+
+const decimalToBinary2 = (input) => {
+  if (Number.isInteger(input)) {
+    let bin = 0;
+    let i = 1;
+    let rem;
+
+    while (input !== 0) {
+      rem = input % 2;
+      bin = bin + i * rem;
+      input = parseInt(input / 2);
+      i = i * 10; // i is sort of acting like the nth position place from left hand side.
+    }
+    console.log(bin);
+    return bin;
+  } else {
+    console.log("Error: Cannot convert float values");
+    return `Error: Cannot convert float values`;
+  }
+};
+
+console.log(decimalToBinary2(20));
