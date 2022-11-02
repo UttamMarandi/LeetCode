@@ -14,11 +14,11 @@ const objStr = new String("Hi I am a string object");
 
 const checkType = (str) => {
   if (str instanceof String) {
-    console.log(objStr);
+    console.log(str);
     return `instace string ${objStr}`;
   } else if (typeof str === "string") {
-    console.log(ltlrStr);
-    return `liteal string ${ltlrStr}`;
+    console.log(str);
+    return `liteal string ${str}`;
   } else {
     console.log("Some other type");
     return `Some Other type`;
