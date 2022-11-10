@@ -49,3 +49,37 @@ let square4 = square(4);
 // }
 
 //This whole function execution context will get deleted after the function execution is complete
+
+//When square(4) line is executed a whole new function execution context is again created.
+
+// Function execution context.
+// Memory component :
+// num => undefined => 4
+// ans => undefined => 16
+
+// Code execution phase
+// num gets the value 4
+// num * num is executed and ans gets the value 16
+// return ans => square4 gets the value of ans i.e 16. It replaces undefined
+
+// After the entire js code is executed , the entire global execution is destroyed.
+
+// How Javascript manages execution context
+// Javascript manages execution context using a call stack
+
+// CAll STACK
+// Call stack is stack type data structure which is used to manage the execution contexts.
+// In the bottom of the call stack we have the global execution context
+// Whenever a new execution  context is created , it is pushed into the call stack.
+// After execution of the function is complete the related execution context is popped out of the call stack.
+//So, global execution context is the last one to be popped.
+
+// Call stack maintains the order of execution of the execution contexts
+
+// Also known as :
+//1. Call stack
+// Execution context stack
+//Program stack
+//Control stack
+//Runtime stack
+//Machine stack
