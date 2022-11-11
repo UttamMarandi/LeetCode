@@ -41,7 +41,7 @@ g = 20; // Declaration and then initialization is allowed for let.
 //  Syntax Error , Referrence Error, Type Error
 
 // Syntax Error : If there is any syntax issues in the code then js throws syntax error . Not a single line of code will run
-// Referrence Error : When js tries to access a variable in all the available scope and cannot access it
+// Referrence Error : When js tries to access a variable in all the available scope and cannot access it. Code stops running after the line has been executed. No furthur execution is allowed
 // Type Error : When you want to change the type of a const and variable
 
 // Temporal dead zone can cause error if devs are not careful
