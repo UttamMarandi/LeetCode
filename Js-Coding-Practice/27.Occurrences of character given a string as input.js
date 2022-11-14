@@ -7,7 +7,7 @@ function countCharacters(str) {
     .split("")
     .reduce((p, c) => {
       if (c in p) {
-        p[c]++;
+        p[c] = ++p[c];
       } else {
         p[c] = 1;
       }
