@@ -35,4 +35,4 @@ console.log("While expires");
 // While Expires // After 10s
 // Callback // Immediatly after 10s
 
-// setTimeout gurantees the delay , but doest not gurantee that the code will run after exactly after the delay
+// setTimeout gurantees the delay , but doest not gurantee that the code will run  exactly after the delay
