@@ -31,7 +31,7 @@ var stoleSecretIdentity = hero.getSecretIdentity;
 console.log(stoleSecretIdentity()); // here this represent the function scope
 console.log(hero.getSecretIdentity()); // here this represents the object scope
 
-// Code 32
+// Code 32 => Doubt
 var length = 10;
 function fn() {
   console.log(this.length);
@@ -46,3 +46,60 @@ var obj = {
 };
 
 obj.method(fn, 1);
+
+// Code 33 => Doubt
+(function () {
+  try {
+    throw new Error();
+  } catch (x) {
+    var x = 1;
+    var y = 2;
+    console.log(x);
+  }
+  console.log(y);
+  console.log(x);
+})();
+
+// Code 34
+var x = 21;
+var girl = function () {
+  console.log(x);
+  var x = 20;
+};
+girl();
+
+// Code 35
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+
+// Code 36
+console.log(typeof typeof 1);
+
+// Code 37
+var b = 1;
+function outer() {
+  var b = 2;
+  function inner() {
+    b++;
+    console.log(b);
+    var b = 3;
+    console.log(b);
+  }
+  inner();
+}
+outer();
+
+// Code 38
+
+x = 10;
+console.log(x);
+var x;
+
+// Code 39
+const arr = [1, 2];
+arr.push(3);
+console.log("arr:", arr);
+
+// // Code 40 => Doubt
+// var o = new F();
+// o.constructor === F;
