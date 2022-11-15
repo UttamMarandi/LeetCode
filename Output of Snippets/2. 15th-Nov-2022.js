@@ -166,3 +166,18 @@ var objA = { prop1: 42 };
 var objB = objA;
 objB.prop1 = 90;
 console.log(objA);
+// Objects are passed by reference, that is, objA and objB point to the same object in memory.
+
+// Code 56
+var objC = { prop1: 42 };
+var objD = objC;
+objD = {};
+objC.prop1 = 32;
+objD = objC;
+objD.prop1 = 65;
+console.log(objC);
+console.log("objD:", objD);
+
+// The output will {prop1: 42}.
+// When we assign objA to objB, the objB variable will point to the same object as the objB variable.
+// However, when we reassign objB to an empty object, we simply change where objB variable references to. This doesn't affect where objA variable references to.
