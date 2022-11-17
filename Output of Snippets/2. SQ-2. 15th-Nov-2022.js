@@ -231,3 +231,106 @@
   arrayNumb.sort(); // Numbers are sorted as strings. That's why 1s get priority
   console.log(arrayNumb);
 })();
+
+// Code 92
+function funcA() {
+  console.log("funcA ", this);
+  (function innerFuncA1() {
+    console.log("innerFunc1", this);
+    (function innerFunA11() {
+      console.log("innerFunA11", this);
+    })();
+  })();
+}
+
+console.log(funcA());
+
+// Code 93 => Doubt
+var obj = {
+  message: "Hello",
+  innerMessage: !(function () {
+    console.log(this.message); // innerMessage is a IIFE , so it creates it's own ecexution context. and this keyword doesnot have reference to obj.message
+  })(),
+};
+
+console.log(obj.innerMessage);
+
+// undefined is due to console.log statement in IIFE
+
+// (function() {
+//         console.log(this.message);
+//     })() //prints undefined and returns `undefined`
+// And true is because innerMessage is a boolean as you negated !undefined ==> true.
+
+// Code 94
+var obj = {
+  message: "Hello",
+  innerMessage: function () {
+    return this.message;
+  },
+};
+
+console.log(obj.innerMessage());
+
+// Code 95
+var obj = {
+  message: "Hello",
+  innerMessage: function () {
+    (function () {
+      console.log(this.message);
+    })();
+  },
+};
+console.log(obj.innerMessage());
+
+// Code 96
+var obj = {
+  message: "Hello",
+  innerMessage: function () {
+    var self = this;
+    (function () {
+      console.log(self.message);
+    })();
+  },
+};
+console.log(obj.innerMessage());
+
+// Code 97
+function myFunc() {
+  console.log(this.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+
+// Code 98
+function myFunc() {
+  console.log(myFunc.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+
+// Code 99
+function myFunc() {
+  myFunc.message = "Hi John";
+  console.log(myFunc.message);
+}
+console.log(myFunc());
+
+// Code 100
+function myFunc(param1, param2) {
+  console.log(myFunc.length);
+}
+// A Function object's length property indicates how many arguments the function expects, i.e. the number of formal parameters.
+console.log(myFunc());
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
+
+// Code 101
+function myFunc() {
+  console.log(arguments.length);
+}
+console.log(myFunc());
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
