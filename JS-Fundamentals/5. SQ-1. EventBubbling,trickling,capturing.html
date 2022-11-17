@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling, Capturing and Trickling</title>
+</head>
+
+<body>
+    <div id="grand-parent" onclick="onGrandParentClick()">
+        <div id="parent" onclick="onParentClick()">
+            <div id="child" onclick="onChildClick()"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+       Event Bubbling
+    // In case of event bubbling when the #child div is clicked onChildClick() is called first , and then onParentClick() and then onGrandParentClick(). This is event bubbling
+        Event capturing
+    // In case of event capturing whrn the #child div is clicked onGrandParentClick() will be called first , then onParentClick() and then onChildClick()   
+    // Let's #parent div is clicked then 
+    // Eventbubbling => onParentClick() is called first and then onGrandParentClick(). onChildClick() will not get called. => Botttom to top
+    // EventCapturing => onGrandParentClick() is called first then onParentClick(). onChildClick() will not get called. => Top to bottom
+    // EventCapturing is also known as Event trickling
+
+    
+ -->
