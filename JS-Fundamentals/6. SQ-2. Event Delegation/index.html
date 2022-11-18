@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+
+<body>
+    <div>
+        <ul class="category">
+            <li class="laptops" id="laptops">
+                Laptops
+            </li>
+            <li class="cameras" id="cameras">Cameras</li>
+            <li class="shoes" id="shoes">Shoes</li>
+        </ul>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
+
+<!-- 
+    We want to handle click events when user clicks on any li item.
+    // It's not feasible to maintain event handlers for each li as we can have 100s of categories.
+    // So we define one event handler for the ul element which gets triggered due to event bubbling. This is called event delegation.
+
+ -->
