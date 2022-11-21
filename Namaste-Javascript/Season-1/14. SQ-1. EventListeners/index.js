@@ -17,7 +17,7 @@ document.getElementById("clickMe2").addEventListener("click", function bc() {
   console.log("Button clicked", ++count);
 });
 
-// The above is not a good solution b.c count can be accessed by other global function and local functions also due to cloure
+// The above works but is not a good solution b.c count can be accessed by other global function and local functions also due to cloure
 
 // Code 2
 
@@ -29,6 +29,7 @@ const countOnClick = () => {
 };
 
 countOnClick();
+
 // In the avove ,the count variable has local scope so outside code can't access it.
 // When countOnclick is called a new execution context is created.
 // Memory Allocation phase

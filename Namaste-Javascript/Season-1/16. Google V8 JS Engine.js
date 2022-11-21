@@ -49,7 +49,7 @@
 
 // But  moderen browsers use both interpreter and compiler
 // JIT => Javascript engines can use both inpreted and compiler to execute js code. That's why it is called Just in time compiler
-// JIT uses the best of both worlds for interpreted and compiler.
+// JIT uses the best of both worlds for interpreter and compiler.
 
 // Parsing (Syntax Parser) => Compilation => Execution
 // The compilation and execution goes hand in hand.

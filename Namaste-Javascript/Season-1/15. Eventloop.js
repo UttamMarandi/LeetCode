@@ -67,21 +67,22 @@ console.log("End");
 //Analysis
 // push => Global execution context (GEC)
 //logs "start" // we use console web api provided by window
-//setTimeout call the setTimeout web api provided by browser . setTimeout takes a callback and a delay. It registers this callback in the browser web api and starts the delay
+//setTimeout call the setTimeout web api provided by browser . setTimeout takes a callback and a delay. It registers this callback in the browser web api enviroment and starts the delay
 // logs End
 // pop => Global execution context (GEC)
-// After 5s , as the global execution context is popped of the call stack , a new execution context is pushed into the call stack to execute the callback of setTimeout
+// After 5s , a new execution context is pushed into the call stack to execute the callback of setTimeout
 //But somehow we need to remember the callback function that is attached to the setTimeout
 
 // This is where the event loop and callback queue comes to picture
 
 // Event Loop & Callback queue
-// Right now 5000ms timer is running and callback is registered.
+// Right now 5000ms timer is running and callback is registered in web api enviroment.
 // As soon as the timer expires it needs to go directly into the call stack.
 // But it can't go direclty into the callstack b.c maybe some other task has more priority
 // So it goes to the callstack through this callback queue
 // Callback function after the timer expiration moves into the callback queue
-// Event Loop : The job of the event loop is to periodically check the callback queue and push the callback function stored in callback queue into the call stack
+// Event Loop : The job of the event loop is to periodically check and monitor the callback queue and the callstack and push the callback function stored in callback queue into the call stack if
+// the call stack is empty.
 // Event loop acts like a gatekeeper
 
 // Code 3
@@ -104,17 +105,18 @@ console.log("End");
 // by the documnent.addEventListener
 // console web api is called to log "End" in console ui
 // As the code has completed execution ,Global execution cotext is destroyed.
+// pop => GEC
 
 // But the eventlistener along with the callback function and it's closure will stay in the web api eniroment until we explicitly remove the eventListener or we close the browser
 //
 // User clicks
 // When the user clicks on the button , the callback function present in the web api enviroment is pushed to the callback queue waiting for it's turn to get executed
 //
-//EVent loop
-//Event loop's job is to continuously is monitor the callstack and the callback queue. If the call stack is empty and there is some function present in the callback queue , it will
+//Event loop
+//Event loop's job is to continuously monitor the callstack and the callback queue. If the call stack is empty and there is some function present in the callback queue , it will
 //move the callback function from the callback queue to the call stack
 // push => cb execution context
-// So , cb callback is pushed to the call stack as call back is empty and remove from the callback queue. Even the GEC is popped.
+// So , cb callback is pushed to the call stack as call back is empty and removed from the callback queue. Even the GEC is popped.
 // console web api is called to log "Callback"
 //pop =>  cb execution context
 

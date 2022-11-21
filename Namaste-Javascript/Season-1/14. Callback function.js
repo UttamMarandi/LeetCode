@@ -27,7 +27,7 @@ x(function y() {
 //Analysis.
 // Execution context created
 // Memory Allocation phase
-// setTimeout is async so the callback is stored in a different space with a timer attached to it.
+// setTimeout is async so the callback is stored in a different space (Web APIs enviroment) with a timer attached to it.
 // x:{...}
 //
 // Code Execution phase
