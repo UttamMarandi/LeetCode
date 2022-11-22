@@ -81,14 +81,16 @@ var employeeId = "1234abe";
   };
 })();
 
-// Code 65
-var employeeId = "abc123";
+// Code 65 => Boubt
+
+var employeeId5 = "abc123";
 function foo() {
-  employeeId = "123bcd";
+  employeeId5 = "123bcd";
+  console.log(employeeId5);
   return;
 }
 foo();
-console.log(employeeId);
+console.log(employeeId5);
 
 // Code 66
 
@@ -105,22 +107,25 @@ console.log(employeeIds);
 // During memory allocation phase :
 // employeeIds = undefined
 // employeeIds = function{...} // This makes employeeIds a local execution context  variable
-// When we log employeeIds outside in global scope , we get global variable
+// When we log employeeIds outside in foos scope , we get global variable
 
-// Const 67
+// Const 67 => Doubt
 
-var employeeId = "abc123";
+{
+  var employeeId = "abc123";
 
-function foo() {
-  employeeId();
-  return;
+  function foo() {
+    console.log(foo);
+    employeeId();
+    return;
 
-  function employeeId() {
-    // In function statement , function name is availaible
-    console.log(typeof employeeId);
+    function employeeId() {
+      // In function statement , function name is availaible
+      console.log(typeof employeeId);
+    }
   }
+  foo();
 }
-foo();
 
 // Code 68
 

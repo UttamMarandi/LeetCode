@@ -52,10 +52,14 @@ obj.method(fn, 1);
   try {
     throw new Error();
   } catch (x) {
+    // Here we are defining a new x inside the catch block.
+    // So var x=1 , changes this local catch block and not the function level x
     var x = 1;
     var y = 2;
     console.log(x);
   }
+  console.log(x);
+  // here it is still undefined b.c x got hoisted to in line 57 , but the function scope x is not initialzied yet. b.c line 57 changes the local x passed to the catch block
   console.log(y);
   console.log(x);
 })();
@@ -90,10 +94,11 @@ function outer() {
 outer();
 
 // Code 38
-
-x = 10;
-console.log(x);
-var x;
+{
+  x = 10;
+  console.log(x);
+  var x;
+}
 
 // Code 39
 const arr = [1, 2];
@@ -103,3 +108,4 @@ console.log("arr:", arr);
 // // Code 40 => Doubt
 // var o = new F();
 // o.constructor === F;
+// Ans : true , the constructor property specifies the class.
