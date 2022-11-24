@@ -84,7 +84,15 @@
     foo: "foo",
   });
   var objB = objA;
-  objB.foo = "bar";
+  console.log(objA);
+  console.log(objB);
+
+  // Both the objects are empty. Food is assigned to the __proto__ object .
+  // Assignment to Object.create({}) do not create it's own property but the assigned object inherits the keys of the passed object through __proto__ object.
+
+  objB.foo = "bar"; // That's why this assignment does not work
+
+  objB.__proto__.foo = "bar";
 
   delete objA.foo;
   console.log(objA.foo);
@@ -97,7 +105,7 @@
 // var objA = Object.create({
 //     foo: 'foo'
 // });
-// creates an object objA with objA.__proto__ (its prototype) set to {foo: 'foo'}. There is no actual objA.foo property, it is actually objA.__proto__.foo, so nothing is deleted.
+// creates an object objA with objA.__proto__ (its prototype) set to {foo: 'foo'}. There is not an actual objA.foo property, it is actually objA.__proto__.foo, so nothing is deleted.
 // If you do instead
 // var objA = {foo: 'foo'}
 
@@ -109,6 +117,9 @@
   };
   var objB = objA;
   objB.foo = "bar";
+
+  console.log(objA.foo);
+  console.log(objB.foo);
 
   delete objA.foo;
   console.log(objA.foo);
@@ -126,7 +137,7 @@
 (function () {
   var array1 = [];
   var array2 = new Array(100); // passing integer as argument means , we are creating an array of size 100
-  var array3 = new Array(["1", 2, "3", 4, 5.6]);
+  var array3 = new Array(["1", 2, "3", 4, 5.6]); // Array constructor takes parameters separated by commas.
   console.log(array1);
   console.log(array2);
   console.log(array3);
@@ -163,8 +174,8 @@
 (function () {
   var array = [1, 2, 3, 4, 5];
   console.log(array.indexOf(2));
-  console.log([{ name: "John" }, { name: "John" }].indexOf({ name: "John" })); // Doubt => Maybe indexOf can't compare objects.
-  console.log([[1], [2], [3], [4]].indexOf([3])); // Doubt => Maybe indexOd can't comapare objects and array is an object
+  console.log([{ name: "John" }, { name: "John" }].indexOf({ name: "John" })); //  indexOf can't compare objects.
+  console.log([[1], [2], [3], [4]].indexOf([3])); //  indexOf can't compare objects and array is an object
   console.log("abcdefgh".indexOf("e"));
 })();
 
@@ -184,12 +195,13 @@
   });
   console.log(even);
 
-  var containsDivisibleby3 = numbers.some(function (element, index) {
+  var containsDivisibleBy3 = numbers.some(function (element, index) {
     // some returns a boolean value
+    // at least one element in the array passes the test
     return element % 3 === 0;
   });
 
-  console.log(containsDivisibleby3);
+  console.log(containsDivisibleBy3);
 })();
 
 // Code 88 // Doubt
@@ -208,7 +220,7 @@
 // Code 89
 
 (function () {
-  var list = ["foo", "bar", "john", "ritz"]; //.slic() return new array. .slice(startIndex, endIndex)
+  var list = ["foo", "bar", "john", "ritz"]; //.slice() return new array. .slice(startIndex, endIndex)
   console.log(list.slice(1));
   console.log(list.slice(1, 3));
   console.log(list.slice());
@@ -229,6 +241,8 @@
 (function () {
   var arrayNumb = [2, 8, 15, 16, 23, 42];
   arrayNumb.sort(); // Numbers are sorted as strings. That's why 1s get priority
+  console.log(arrayNumb);
+  arrayNumb.sort((a, b) => (b > a ? -1 : 0));
   console.log(arrayNumb);
 })();
 
