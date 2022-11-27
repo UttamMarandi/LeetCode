@@ -319,7 +319,7 @@ console.log(myFunc());
 
 // Code 98
 function myFunc() {
-  console.log(myFunc.message);
+  console.log(myFunc.message); // logs "Hi John"
 }
 myFunc.message = "Hi John";
 
@@ -328,7 +328,7 @@ console.log(myFunc());
 // Code 99
 function myFunc() {
   myFunc.message = "Hi John";
-  console.log(myFunc.message);
+  console.log(myFunc.message); // logs "Hi John"
 }
 console.log(myFunc());
 
@@ -342,9 +342,12 @@ console.log(myFunc("a", "b"));
 console.log(myFunc("a", "b", "c", "d"));
 
 // Code 101
-function myFunc() {
-  console.log(arguments.length);
+{
+  function myFunc() {
+    console.log(arguments.length);
+    // arguments.length gives us the number of arguments pass and not the number of formal parameters.
+  }
+  console.log(myFunc());
+  console.log(myFunc("a", "b"));
+  console.log(myFunc("a", "b", "c", "d"));
 }
-console.log(myFunc());
-console.log(myFunc("a", "b"));
-console.log(myFunc("a", "b", "c", "d"));

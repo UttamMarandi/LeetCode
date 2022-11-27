@@ -5,7 +5,7 @@
 // 2 => has two parts => 1. Fetching of scripts 2.execution of scripts
 
 //  Let's say browser is parsing the html and encounters a script tag. At that moment browser will stop the parsing of html, then fetch the data
-//  and then executet the script and then start parsing html again.
+//  and then execute the script and then start parsing html again.
 //  By default , this is the synchronous way
 //  <script src=""/>
 // async attribute.
@@ -13,7 +13,7 @@
 // If we use async attribute
 // <script async src=""/>
 // The parsing of html continues and in the background we are fetching the the script files.
-// As soon as the script files are available , the parsing of html continues stops and after script files are completly executed , parsing of html continues.
+// As soon as the script files are available , the parsing of html  stops and after script files are completely executed , parsing of html continues.
 
 // defer
 // In case of defer attribute

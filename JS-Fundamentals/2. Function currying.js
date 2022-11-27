@@ -33,7 +33,7 @@ let multiplyClosusre = function (x) {
 
 let multiplyByTwo = multiplyClosusre(2);
 
-multiplyByTwo(2);
+multiplyByTwo(6);
 
 // or
 
