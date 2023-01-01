@@ -54,7 +54,7 @@
   // Everything will happen opposite of event bubbling
 }
 
-//  Event bubblind and event trickling/capturing is a very expensive process
+//  Event bubbling and event trickling/capturing is a very expensive process
 
 // Both event bubbling and event trickling will cause event chains
 // That's why it's important to stop the propagation at some time.
@@ -92,12 +92,12 @@
   // capturing cycle => top to bottom
   // grandparent => capture => true => logs grandparent
   // parent => capture =>false => skipped
-  // chiled => captur => true => logs child
+  // child => capture => true => logs child
 
   // bubbling cycle => bottom to top
   // child => capture true => skipped
   // parent => capture false => logs parent
-  // grandparent => capture true => logs child
+  // grandparent => capture true => skipped
 }
 
 {
@@ -125,7 +125,7 @@
     false
   ); // bubbling
 
-  // captuing cycle => top to bottom
+  // capturing cycle => top to bottom
   // grandparent => capture => true, so grandparent logs
   // parent => capture => false => skipped on capturing cycle
   // child => capture => false => skipped on capturing cycle
@@ -142,7 +142,7 @@
 // we can use this event object to prevent event bubbling and capturing using
 // event.stopPropagation
 
-// Bubling along with .stopPropagation()
+// Bubbling along with .stopPropagation()
 {
   document.querySelector("#grandparent").addEventListener(
     "click",
@@ -169,9 +169,9 @@
     false
   ); // bubbling
 
-  //   Propagation cycle stops when it encounters  e.stopProapgation
+  //   Propagation cycle stops when it encounters  e.stopPropagation
 
-  // capturing cylcle
+  // capturing cycle
   // grandparent => false => skipped
   // parent => false => skipped
   // child => false => skipped
@@ -179,7 +179,7 @@
   // bubbling cycle
   // child => false => logged
   // parent => false => logged =>
-  // e.stopPropagation() is encounterd. so event chaining stops
+  // e.stopPropagation() is encountered. so event chaining stops
 }
 
 // Bubbling with stopPropagation at child level
@@ -190,12 +190,11 @@
       console.log(" Grand Parent Clicked !");
     },
     false
-  ); // event capturing set to true
+  ); // event capturing set to false
 
   document.querySelector("#parent").addEventListener(
     "click",
     (e) => {
-      e.stopPropagation();
       console.log("Parent Clicked");
     },
     false
@@ -204,21 +203,22 @@
   document.querySelector("#child").addEventListener(
     "click",
     () => {
+      e.stopPropagation();
       console.log("Child Clicked");
     },
     false
   ); // bubbling
 
-  //   Propagation cycle stops when it encounters  e.stopProapgation
+  //   Propagation cycle stops when it encounters  e.stopPropagation
 
-  // capturing cylcle
+  // capturing cycle
   // grandparent => false => skipped
   // parent => false => skipped
   // child => false => skipped
 
   // bubbling cycle
   // child => false => logged
-  // e.stopPropagation() is encounterd. so event chaining stops
+  // e.stopPropagation() is encountered. so event chaining stops
 }
 
 // capturing with stopPropagation
@@ -229,7 +229,7 @@
       console.log(" Grand Parent Clicked !");
     },
     true
-  ); // event capturing set to true
+  ); // event capturing set to false
 
   document.querySelector("#parent").addEventListener(
     "click",
